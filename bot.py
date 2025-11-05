@@ -36,7 +36,7 @@ async def responder(update:Update,context:ContextTypes.DEFAULT_TYPE):
 
 #PASO 6. CONFIGURACION DEL BOT
 def bot():
-    app=ApplicationBuilder.builder().token(tokenTelegram).build() 
+    app=ApplicationBuilder().token(tokenTelegram).build() 
     app.add_handler(CommandHandler("start",start)) 
     app.add_handler(MessageHandler(filters.text & ~filters.COMMAND, responder))
     print("Bot esta activo")
