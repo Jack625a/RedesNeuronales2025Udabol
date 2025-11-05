@@ -4,7 +4,7 @@
 
 #PASO 1. importar las librerias
 import google.generativeai as genai
-from telegram.ext import Application,CommandHandler, MessageHandler, filters, ContextTypes
+from telegram.ext import ApplicationBuilder,CommandHandler, MessageHandler, filters, ContextTypes
 from telegram import Update
 
 
@@ -36,7 +36,7 @@ async def responder(update:Update,context:ContextTypes.DEFAULT_TYPE):
 
 #PASO 6. CONFIGURACION DEL BOT
 def bot():
-    app=Application.builder().token(tokenTelegram).build() 
+    app=ApplicationBuilder.builder().token(tokenTelegram).build() 
     app.add_handler(CommandHandler("start",start)) 
     app.add_handler(MessageHandler(filters.text & ~filters.COMMAND, responder))
     print("Bot esta activo")
